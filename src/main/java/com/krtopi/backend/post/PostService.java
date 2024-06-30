@@ -4,6 +4,7 @@ import java.util.List;
 
 public interface PostService {
     void savePost(PostEntity post);
+    void deletePost(String id);
     List<PostEntity> getAllPosts();
     List<PostEntity> getByTag(String tag);
     List<PostEntity> getByLocation(String location);

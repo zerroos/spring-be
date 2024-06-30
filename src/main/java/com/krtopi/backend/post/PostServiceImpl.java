@@ -21,6 +21,9 @@ public class PostServiceImpl implements PostService{
     public void savePost(PostEntity post) {
         this.postRepository.save(post);
     }
+    public void deletePost(String id) {
+        this.postRepository.deleteById(id);
+    }
     public List<PostEntity> getAllPosts(){
         return this.postRepository.findAll();
     }

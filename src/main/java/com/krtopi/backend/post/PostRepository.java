@@ -5,7 +5,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.List;
 
-public interface PostRepository extends MongoRepository<PostEntity, Long> {
+public interface PostRepository extends MongoRepository<PostEntity, String> {
     PostEntity findByPosterId(Long id);
     List<PostEntity> findByTagsContaining(String tag);
     List<PostEntity> findByLocation(String location);
