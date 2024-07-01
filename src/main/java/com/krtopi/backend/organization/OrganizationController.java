@@ -7,7 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(path="/api/organization")
+@RequestMapping(path="/api/v1")
 public class OrganizationController {
 
     OrganizationService organizationService;
@@ -16,7 +16,7 @@ public class OrganizationController {
     public OrganizationController(OrganizationService organizationService){
         this.organizationService = organizationService;
     }
-    @GetMapping(path="/{id}")
+    @GetMapping(path="/organization/{id}")
     public ResponseEntity<OrganizationResponse> getOrganization(@PathVariable("id") long id) {
         OrganizationEntity ans =  organizationService.findByOrgName(id);
         OrganizationResponse orgResp = new OrganizationResponse();
@@ -30,11 +30,11 @@ public class OrganizationController {
         orgResp.setStatus("Success");
         return ResponseEntity.ok(orgResp);
     }
-    @PostMapping(path = "/create")
+    @PostMapping(path = "/organization")
     public String  createOrganization(@RequestBody OrganizationEntity organization) {
         return this.organizationService.createOrganization(organization);
     }
-    @DeleteMapping(path = "/{id}")
+    @DeleteMapping(path = "/organization/{id}")
     public String  deleteOrganization(@PathVariable("id") long id) {
         return this.organizationService.deleteOrganization(id);
     }

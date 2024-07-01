@@ -2,8 +2,7 @@ package com.krtopi.backend.user;
 
 import com.krtopi.backend.authentication.AuthUserEntity;
 import com.krtopi.backend.organization.OrganizationEntity;
-import com.krtopi.backend.organization.OrganizationRoleEntity;
-import com.krtopi.backend.post.PostEntity;
+import com.krtopi.backend.user.friend.FriendEntity;
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
