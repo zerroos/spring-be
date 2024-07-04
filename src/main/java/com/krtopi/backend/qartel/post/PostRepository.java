@@ -8,5 +8,5 @@ public interface PostRepository extends MongoRepository<PostEntity, String> {
     List<PostEntity> findByLocationAndCategory(String location, String category);
     List<PostEntity> findByCollege(String college);
     PostEntity findByPostId(String id);
-    List<PostEntity> findTop100ByCityOrderByCreatedAtDesc(String city);
+    List<PostEntity> findTop100ByLocationOrderByCreatedAtDesc(String location);
 }

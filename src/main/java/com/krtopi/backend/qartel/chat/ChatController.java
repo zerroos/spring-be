@@ -20,19 +20,19 @@ public class ChatController {
 
     // GET /api/chats?userId={userId}
     @GetMapping("/api/chats")
-    public List<ChatEntity> getChatsByUserId(@RequestParam Long userId) {
+    public List<ChatEntity> getChatsByUserId(@RequestParam String userId) {
         return chatService.getChatsByUserId(userId);
     }
 
     // GET /api/chats/{chatId}
     @GetMapping("/api/chats/{chatId}")
-    public ChatEntity getChatById(@PathVariable Long chatId) {
+    public ChatEntity getChatById(@PathVariable String chatId) {
         return chatService.getChatById(chatId);
     }
 
     // DELETE /api/chats/{chatId}
     @DeleteMapping("/api/chats/{chatId}")
-    public void deleteChatById(@PathVariable Long chatId) {
+    public void deleteChatById(@PathVariable String chatId) {
         chatService.deleteChatById(chatId);
     }
 }

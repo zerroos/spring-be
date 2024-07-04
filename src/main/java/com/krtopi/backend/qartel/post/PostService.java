@@ -14,7 +14,7 @@ public class PostService {
     }
 
     public List<PostEntity> getLatestPostsByCity(String city) {
-        return this.postRepository.findTop100ByCityOrderByCreatedAtDesc(city);
+        return this.postRepository.findTop100ByLocationOrderByCreatedAtDesc(city);
     }
 
     public PostEntity getPostById(String postId) {

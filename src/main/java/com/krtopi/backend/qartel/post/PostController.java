@@ -25,13 +25,13 @@ public class PostController {
     }
 
     // GET /api/posts?category={selectedCategory}&city={userCity}
-    @GetMapping("/api/posts")
+    @GetMapping(value="/api/posts", params = {"category", "city"})
     public List<PostEntity> getPostsByCategoryAndCity(@RequestParam String category, @RequestParam String city) {
         return postService.getPostsByCategoryAndCity(category, city);
     }
 
     // GET /api/posts?college={selectedCollege}
-    @GetMapping("/api/posts")
+    @GetMapping(value="/api/posts", params="college")
     public List<PostEntity> getPostsByCollege(@RequestParam String college) {
         return postService.getPostsByCollege(college);
     }
