@@ -18,8 +18,8 @@ public class ChatController {
         return chatService.createChat(chat);
     }
     @PostMapping("/api/chat/{chatId}")
-    public ChatEntity addMessage(@RequestBody MessageEntity message) {
-        return chatService.addMessage(message);
+    public ChatEntity addMessage(@PathVariable String chatId, @RequestBody MessageEntity message) {
+        return chatService.addMessage(message, chatId);
     }
 
     // GET /api/chats?userId={userId}

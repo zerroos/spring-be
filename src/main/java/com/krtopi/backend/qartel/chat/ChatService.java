@@ -3,7 +3,9 @@ package com.krtopi.backend.qartel.chat;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ChatService {
@@ -27,8 +29,26 @@ public class ChatService {
         return this.chatRepository.findByConversationId(chatId);
     }
 
-    public ChatEntity addMessage(MessageEntity message){
-        return null;
+    public ChatEntity addMessage(MessageEntity message, String chatId){
+        Optional<ChatEntity> optionalChatEntity = this.chatRepository.findById(chatId);
+
+        if (optionalChatEntity.isPresent()) {
+            ChatEntity chatEntity = optionalChatEntity.get();
+            // Add the new message to the existing messages array
+            MessageEntity[] currentMessages = chatEntity.getMessages();
+            if (currentMessages == null) {
+                currentMessages = new MessageEntity[1];
+                currentMessages[0] = message;
+            } else {
+                MessageEntity[] newMessages = Arrays.copyOf(currentMessages, currentMessages.length + 1);
+                newMessages[currentMessages.length] = message;
+                currentMessages = newMessages;
+            }
+
+            chatEntity.setMessages(currentMessages);
+            this.chatRepository.save(chatEntity);
+        }
+        return optionalChatEntity.get();
     }
     public void deleteChatById(@PathVariable String chatId) {
         if (this.chatRepository.existsById(chatId)) {
