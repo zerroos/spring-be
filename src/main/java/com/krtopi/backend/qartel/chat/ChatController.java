@@ -17,6 +17,10 @@ public class ChatController {
     public ChatEntity createChat(@RequestBody ChatEntity chat) {
         return chatService.createChat(chat);
     }
+    @PostMapping("/api/chat/{chatId}")
+    public ChatEntity addMessage(@RequestBody MessageEntity message) {
+        return chatService.addMessage(message);
+    }
 
     // GET /api/chats?userId={userId}
     @GetMapping("/api/chats")

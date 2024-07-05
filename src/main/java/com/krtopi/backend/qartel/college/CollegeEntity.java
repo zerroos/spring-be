@@ -12,4 +12,36 @@ public class CollegeEntity {
     private String collegeName;
     private String collegeCity;
     private String collegeState;
+
+    public String getCollegeId() {
+        return collegeId;
+    }
+
+    public void setCollegeId(String collegeId) {
+        this.collegeId = collegeId;
+    }
+
+    public String getCollegeName() {
+        return collegeName;
+    }
+
+    public void setCollegeName(String collegeName) {
+        this.collegeName = collegeName;
+    }
+
+    public String getCollegeCity() {
+        return collegeCity;
+    }
+
+    public void setCollegeCity(String collegeCity) {
+        this.collegeCity = collegeCity;
+    }
+
+    public String getCollegeState() {
+        return collegeState;
+    }
+
+    public void setCollegeState(String collegeState) {
+        this.collegeState = collegeState;
+    }
 }

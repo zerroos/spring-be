@@ -27,6 +27,9 @@ public class ChatService {
         return this.chatRepository.findByConversationId(chatId);
     }
 
+    public ChatEntity addMessage(MessageEntity message){
+        return null;
+    }
     public void deleteChatById(@PathVariable String chatId) {
         if (this.chatRepository.existsById(chatId)) {
             this.chatRepository.deleteById(chatId);
